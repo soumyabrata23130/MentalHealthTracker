@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  MindBloom Design System
+  A sanctuary for emotional wellness - calm, human, non-clinical
+  Inspired by: Calm × Apple Health × Headspace × Notion
+*/
+
+@layer base {
+  :root {
+    /* Core Palette - Soft, healing, nature-inspired */
+    --background: 45 30% 98%;
+    --foreground: 160 15% 20%;
+
+    /* Cards - Warm cream with gentle presence */
+    --card: 45 40% 99%;
+    --card-foreground: 160 15% 20%;
+
+    /* Popover */
+    --popover: 45 40% 99%;
+    --popover-foreground: 160 15% 20%;
+
+    /* Primary - Sage green (healing, growth, calm) */
+    --primary: 155 35% 45%;
+    --primary-foreground: 45 30% 98%;
+
+    /* Secondary - Warm sand (comfort, safety) */
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 160 15% 25%;
+
+    /* Muted - Soft gray-green */
+    --muted: 150 15% 94%;
+    --muted-foreground: 160 10% 50%;
+
+    /* Accent - Soft lavender (emotional warmth) */
+    --accent: 270 30% 94%;
+    --accent-foreground: 270 25% 35%;
+
+    /* Destructive - Gentle coral (not alarming) */
+    --destructive: 15 70% 60%;
+    --destructive-foreground: 45 30% 98%;
+
+    /* Borders & Inputs */
+    --border: 150 15% 88%;
+    --input: 150 15% 92%;
+    --ring: 155 35% 45%;
+
+    /* Generous radius for softness */
+    --radius: 1rem;
+
+    /* Extended Palette */
+    --sage: 155 35% 45%;
+    --sage-light: 155 30% 92%;
+    --sage-dark: 155 35% 35%;
+    
+    --lavender: 270 30% 75%;
+    --lavender-light: 270 30% 94%;
+    
+    --coral: 15 70% 70%;
+    --coral-light: 15 50% 94%;
+    
+    --sand: 35 40% 90%;
+    --sand-light: 35 30% 96%;
+    
+    --sky: 200 60% 75%;
+    --sky-light: 200 50% 94%;
+
+    /* Mood Colors - Soft, non-judgmental */
+    --mood-1: 0 50% 70%;
+    --mood-2: 25 60% 70%;
+    --mood-3: 45 60% 70%;
+    --mood-4: 155 40% 60%;
+    --mood-5: 155 50% 50%;
+
+    /* Gradients */
+    --gradient-calm: linear-gradient(135deg, hsl(155 30% 92%) 0%, hsl(270 30% 94%) 50%, hsl(35 30% 96%) 100%);
+    --gradient-sunrise: linear-gradient(135deg, hsl(35 40% 94%) 0%, hsl(15 50% 92%) 100%);
+    --gradient-serenity: linear-gradient(180deg, hsl(200 50% 96%) 0%, hsl(155 30% 94%) 100%);
+    
+    /* Shadows - Soft, embracing */
+    --shadow-soft: 0 4px 20px -4px hsl(155 20% 20% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(155 20% 20% / 0.1);
+    --shadow-float: 0 16px 48px -16px hsl(155 20% 20% / 0.12);
+    --shadow-glow: 0 0 40px hsl(155 35% 45% / 0.15);
+
+    /* Sidebar */
+    --sidebar-background: 45 30% 97%;
+    --sidebar-foreground: 160 15% 25%;
+    --sidebar-primary: 155 35% 45%;
+    --sidebar-primary-foreground: 45 30% 98%;
+    --sidebar-accent: 155 30% 92%;
+    --sidebar-accent-foreground: 160 15% 25%;
+    --sidebar-border: 150 15% 90%;
+    --sidebar-ring: 155 35% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-calm {
+    background: var(--gradient-calm);
+  }
+  
+  .gradient-sunrise {
+    background: var(--gradient-sunrise);
+  }
+  
+  .gradient-serenity {
+    background: var(--gradient-serenity);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Glassmorphism for floating elements */
+  .glass {
+    @apply backdrop-blur-xl;
+    background: hsl(45 30% 98% / 0.8);
+    border: 1px solid hsl(150 15% 88% / 0.5);
+  }
+
+  /* Gentle text styles */
+  .text-gentle {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  /* Safe, encouraging button styles */
+  .btn-breathe {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .btn-breathe:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Mood emoji containers */
+  .mood-bubble {
+    @apply rounded-full p-4 transition-all duration-300 cursor-pointer;
+  }
+
+  .mood-bubble:hover {
+    transform: scale(1.1);
+  }
+
+  .mood-bubble.selected {
+    @apply ring-4 ring-primary/30;
+    transform: scale(1.15);
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-gentle-pulse {
+    animation: gentlePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes gentlePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Safe spacing for emotional breathing room */
+  .space-gentle {
+    @apply py-16 md:py-24;
+  }
+
+  .space-breathe {
+    @apply py-8 md:py-12;
+  }
+}
